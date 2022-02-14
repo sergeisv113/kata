@@ -93,11 +93,12 @@ function count(num) {
 const double = count.bind(2);
 console.log(13)//26*/
 //обычная ф-я
-btn.addEventListener('click', function () {
+/*btn.addEventListener('click', function () {
     console.log(this);//<button> = this
     this.style.backgroundColor = 'red';
-})
+})*/
 //=>
+/*
 btn.addEventListener('click', (e)  => {
     this.style.backgroundColor = 'red';//err
     e.target.style.backgroundColor = 'red';
@@ -114,3 +115,32 @@ const obj = {
 }
 obj.sayNumber();//{ num: 5, sayNumber: f}
 const double = a   =>  a * 2;
+*/
+
+//КЛАССЫ
+class Rectangle {
+    constructor(height, width) {
+        this.height = height;
+        this.width = width;
+    }
+    calcArea () {//это метод = ф-я
+        return this.height * this.width;
+    }
+}
+const square = new Rectangle(10, 10);
+console.log(square.calcArea())//100
+const long = new Rectangle(20, 100);//2000
+
+class ColorRectangleWidthText  extends Rectangle{//наследование Rectangle
+    constructor(height, width, text, bgColor) {
+        super();//методы родителя  this.height = height; this.width = width;
+        this.text = text;
+        this.bgColor = bgColor;
+    }
+    showMyProps() {
+        console.log(`текст: ${this.text}, цвет: ${this.bgColor}`);
+    }
+}
+const div = new ColorRectangleWidthText(25, 10, 'Hello', 'red');
+div.showMyProps();//текст: Hello, цвет: red
+console.log(div.calcArea())//250 метод родителя
