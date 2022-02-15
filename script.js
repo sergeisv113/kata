@@ -144,3 +144,14 @@ class ColorRectangleWidthText  extends Rectangle{//наследование Rect
 const div = new ColorRectangleWidthText(25, 10, 'Hello', 'red');
 div.showMyProps();//текст: Hello, цвет: red
 console.log(div.calcArea())//250 метод родителя
+
+// REST
+const log = function (a, b, ...rest) {
+    console.log(a, b, rest);
+}
+log('basic', 'rest', 'operator', 'usage')//basic rest['operator, 'usage']
+// параметр по умолчанию
+function calcDouble(number, basis = 2) {
+    console.log(number * basis);
+}
+calcDouble(3, )//6
