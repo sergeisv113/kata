@@ -118,6 +118,7 @@ const double = a   =>  a * 2;
 */
 
 //КЛАССЫ
+/*
 class Rectangle {
     constructor(height, width) {
         this.height = height;
@@ -144,8 +145,10 @@ class ColorRectangleWidthText  extends Rectangle{//наследование Rect
 const div = new ColorRectangleWidthText(25, 10, 'Hello', 'red');
 div.showMyProps();//текст: Hello, цвет: red
 console.log(div.calcArea())//250 метод родителя
+*/
 
 // REST
+/*
 const log = function (a, b, ...rest) {
     console.log(a, b, rest);
 }
@@ -154,4 +157,25 @@ log('basic', 'rest', 'operator', 'usage')//basic rest['operator, 'usage']
 function calcDouble(number, basis = 2) {
     console.log(number * basis);
 }
-calcDouble(3, )//6
+calcDouble(3, )//6*/
+
+//JSON
+/*
+const person = {
+    name: 'Alex',
+    tel: '+7994939299',
+    parents: {
+        mom: 'Olga',
+        dad: 'Nik'
+    }
+}
+console.log(JSON.stringify(person))//{name: "Alex",tel: "+7994939299}// json
+console.log(JSON.parse(JSON.stringify(person)))//person obj
+
+const clone = JSON.parse(JSON.stringify(person)); // клонир по значения, глубокая копия
+clone.parents.mom = 'Ann';
+console.log(person);//mom: 'Olga'
+console.log(clone);//mom = 'Ann'
+*/
+//AJAX
+
