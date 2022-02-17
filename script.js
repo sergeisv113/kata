@@ -305,6 +305,20 @@ req.then((product) => {//что то выполнилось правильно
     console.log('finally');
 });
 
-//ol, rice
-
+//all, rice
+const test = time => {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(), time)
+    });
+};
+// test(1000).then(() => console.log('1000 ms'));//1000 ms
+// test(2000).then(() => console.log('2000 ms'));//2000 ms
+Promise.all([test(1000), test(2000)]).then(() => {
+    //all ждет окончания всех промисов
+    console.log('All');// All через 2 сек
+});
+Promise.race([test(1000), test(2000)]).then(() => {
+    //race ждет загрузки первого промиса=> что то выполняет
+    console.log('Race');// Race через 1 сек
+});
 
