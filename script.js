@@ -393,3 +393,21 @@ const arr = ['apple', 'pear', 'plum'];//+ all
 const res = arr.reduce((sum, current) => `${sum}, ${current}`);
 console.log(res);//apple, pear, plum
 */
+
+const obj = {
+    ivan: 'person',
+    ann: 'person',
+    dog: 'animal',
+    cat: 'animal'
+}; //полу все имена'person
+/*
+ const newArr = Object.entries(obj); // получ массива массивов
+console.log(newArr);//[['ivan', 'person'], ['ann', 'person'], ['dog', 'animal'], ['cat', 'animal']]
+*/
+/*
+const newArr = Object.entries(obj).filter(i => i[1] === 'person'); // получ массива массивов
+console.log(newArr);//[['ivan', 'person'], ['ann', 'person']]*/
+const newArr = Object.entries(obj)
+    .filter(i => i[1] === 'person')
+    .map(i => i[0]); // получ массива массивов
+console.log(newArr);// ['ivan', 'ann']
