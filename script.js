@@ -322,3 +322,15 @@ Promise.race([test(1000), test(2000)]).then(() => {
     console.log('Race');// Race через 1 сек
 });
 
+//Fetch API
+fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    body: JSON.stringify({name: 'Alex'}),
+    headers: {
+        'Content-type': 'application/json'
+    }
+})
+    .then(response => response.json())//json=>js
+    .then(json => console.log(json));//json=obj// {name: 'Alex', id: 101}
+
+
