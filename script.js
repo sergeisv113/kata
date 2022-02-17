@@ -210,5 +210,101 @@ inputRub.addEventListener('input', () => {
     //statusText=ok, not found
     //response
     //readyState
-
 });
+
+//Promise
+//обычные асинхр операции
+/*
+console.log('Запрос данных');
+setTimeout(() => {
+    console.log('Подготовка данных');
+    const  product = {
+        name: 'TV',
+        price: 1000
+    };
+    setTimeout(() => {
+        product.status = 'order';
+        console.log(product)
+    }, 2000);
+}, 2000);*/
+//promise
+console.log('Запрос данных');
+/*
+const  req = new Promise(function (resolve, reject) {
+    // resolve-что то выполнилось правильно function
+    //reject что то выполнилось не правильно function
+    setTimeout(() => {
+        console.log('Подготовка данных');
+        const  product = {
+            name: 'TV',
+            price: 1000
+        };
+       resolve(product);
+    }, 2000);
+});
+req.then((product) => {//что то выполнилось правильно
+    setTimeout(() => {
+        product.status = 'order';
+        console.log(product)
+    }, 2000);
+});
+*/
+
+const  req = new Promise( (resolve, reject) => {
+    // resolve-что то выполнилось правильно function
+    //reject что то выполнилось не правильно function
+    setTimeout(() => {
+        console.log('Подготовка данных');
+        const  product = {
+            name: 'TV',
+            price: 1000
+        };
+        resolve(product);
+    }, 2000);
+});
+/*
+req.then((product) => {//что то выполнилось правильно
+    return  new  Promise((resolve, reject) => {
+        setTimeout(() => {
+            product.status = 'order';
+            //вывод данных
+            resolve(product);
+            console.log(data);//{name: 'TV',price: 1000}
+
+        }, 2000);
+    });
+    }).then(data => {//data =>  resolve(product)
+        data.modify = true;
+        return data;
+    console.log(data);//{name: 'TV',price: 1000, status: order}
+}).then(data => {//передача по цепочке и очереодь выполнения
+        console.log(data);//{name: 'TV',price: 1000, status: order, modify: true}
+});
+*/
+// reject
+req.then((product) => {//что то выполнилось правильно
+    return  new  Promise((resolve, reject) => {
+        setTimeout(() => {
+            product.status = 'order';
+            //вывод данных
+            resolve(product)
+            // reject();
+            console.log(data);//{name: 'TV',price: 1000}
+
+        }, 2000);
+    });
+}).then(data => {//data =>  resolve(product)
+    data.modify = true;
+    return data;
+    console.log(data);//{name: 'TV',price: 1000, status: order}
+}).then(data => {//передача по цепочке и очереодь выполнения
+    console.log(data);//{name: 'TV',price: 1000, status: order, modify: true}
+}).catch(() => {
+    console.error('Произошла ошибка');//Запрос данных=>Подготовка данных=>Произошла ошибка
+}).finally(() => {
+    console.log('finally');
+});
+
+//ol, rice
+
+
