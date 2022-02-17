@@ -178,6 +178,7 @@ console.log(person);//mom: 'Olga'
 console.log(clone);//mom = 'Ann'
 */
 //AJAX
+/*
 const inputRub = document.querySelector('#rub'),
       inputUsd = document.querySelector('#usd')
 inputRub.addEventListener('input', () => {
@@ -186,7 +187,7 @@ inputRub.addEventListener('input', () => {
     request.setRequestHeader('Content-type', 'application/json; charset=utf-8;');
     request.send();
 //readystatechange
-/*
+/!*
     request.addEventListener('readystatechange', () => {
         if (request.readyState === 4 && request.status ===200 ) {
             console.log(request.response);
@@ -195,7 +196,7 @@ inputRub.addEventListener('input', () => {
         } else  {
             inputUsd.value = 'Error';
         }
-*/
+*!/
   //load
         request.addEventListener('load', () => {
             if (request.status ===200 ) {
@@ -211,6 +212,7 @@ inputRub.addEventListener('input', () => {
     //response
     //readyState
 });
+*/
 
 //Promise
 //обычные асинхр операции
@@ -227,9 +229,12 @@ setTimeout(() => {
         console.log(product)
     }, 2000);
 }, 2000);*/
+
 //promise
-console.log('Запрос данных');
+
 /*
+console.log('Запрос данных');
+/!*
 const  req = new Promise(function (resolve, reject) {
     // resolve-что то выполнилось правильно function
     //reject что то выполнилось не правильно function
@@ -248,7 +253,7 @@ req.then((product) => {//что то выполнилось правильно
         console.log(product)
     }, 2000);
 });
-*/
+*!/
 
 const  req = new Promise( (resolve, reject) => {
     // resolve-что то выполнилось правильно function
@@ -262,6 +267,8 @@ const  req = new Promise( (resolve, reject) => {
         resolve(product);
     }, 2000);
 });
+*/
+
 /*
 req.then((product) => {//что то выполнилось правильно
     return  new  Promise((resolve, reject) => {
@@ -281,6 +288,8 @@ req.then((product) => {//что то выполнилось правильно
         console.log(data);//{name: 'TV',price: 1000, status: order, modify: true}
 });
 */
+
+/*
 // reject
 req.then((product) => {//что то выполнилось правильно
     return  new  Promise((resolve, reject) => {
@@ -304,8 +313,10 @@ req.then((product) => {//что то выполнилось правильно
 }).finally(() => {
     console.log('finally');
 });
+*/
 
 //all, rice
+/*
 const test = time => {
     return new Promise(resolve => {
         setTimeout(() => resolve(), time)
@@ -321,8 +332,10 @@ Promise.race([test(1000), test(2000)]).then(() => {
     //race ждет загрузки первого промиса=> что то выполняет
     console.log('Race');// Race через 1 сек
 });
+*/
 
 //Fetch API
+/*
 fetch('https://jsonplaceholder.typicode.com/posts', {
     method: 'POST',
     body: JSON.stringify({name: 'Alex'}),
@@ -332,5 +345,51 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
 })
     .then(response => response.json())//json=>js
     .then(json => console.log(json));//json=obj// {name: 'Alex', id: 101}
+*/
 
+//ПЕРЕБОР []
 
+//1) forEach- никогда не возвращ новый []
+
+/*
+//2) filter возвращ new[]
+const names = ['Ivan', 'Ann', 'Igor', 'Voldemar'];
+//получ имена < 5 символов
+const shortNames = names.filter((name) => name.length < 5);
+console.log(shortNames);//['Ivan', 'Ann', 'Igor']
+*/
+
+/*
+//3) map измен каждый елем в исходн [] и return new []
+const answers = ['IvAn', 'AnnA', 'Hello'];
+const result = answers.map(item => item.toLowerCase());
+console.log(result);//["ivan", "anna", "hello"]
+// без новой переменной лучше 1 вариант
+//answers = answers.map(item => item.toLowerCase());
+//console.log(result);//["ivan", "anna", "hello"]
+*/
+
+/*
+// 4) every перебир [] и если все ел. подходят return true
+const every = [4, 2435, 215];
+const result2 = every.every(item => typeof(item) === 'number')
+console.log(result2);// true
+*/
+
+/*
+// 5) some перебир [] и если хоть 1 ел. подходит return true
+const some = [4, 'asvs', 'aNJWFFIW']// есть ли хоть 1 число
+const result = some.some(item => typeof (item) === 'number');
+console.log(result);// true*/
+
+//6) reduce собирает [] в одно целое
+/*const arr = [4, 5, 1, 6, 7, 9];//+ all
+const res = arr.reduce((sum, current) => sum + current, );//32
+const res = arr.reduce((sum, current) => sum + current, 3);//3 начальное значение=35
+console.log(res);//32*/
+/*
+const arr = ['apple', 'pear', 'plum'];//+ all
+// const res = arr.reduce((sum, current) => sum + ', ' + current);
+const res = arr.reduce((sum, current) => `${sum}, ${current}`);
+console.log(res);//apple, pear, plum
+*/
