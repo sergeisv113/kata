@@ -417,3 +417,41 @@ console.log(newArr);// ['ivan', 'ann']
 localStorage.getItem('number')// получ //5
 localStorage.removeItem('number')//delete
 localStorage.clear();//clear DB
+
+//РЕГУЛЯРНЫЕ ВЫРАЖЕНИЯ
+ new RegExp('pattern', 'flags')//создание
+//|| /pattern/f
+
+const ans = prompt('Введите имя');
+ const reg = /n/i; //найти все 'n'
+//flags
+/*
+i//найти не зависимо от регистра
+g//несколько вхождений
+m//многострочный режим
+*/
+console.log(ans.search(reg))//Anett = 1, hbhe = -1, ANETT = 1
+console.log(ans.match(reg));//['n', index; 'Anett'],
+//const reg = /n/ig; //Annn = ['n','n','n']
+console.log(reg.test(ans));//есть ли в регуляр выражен такой паттерн Ann = true, fgh = false
+
+const pass = prompt('Password');
+console.log(pass.replace(/./, '*'))//замена всех символов на *  dfgh = ****
+//просто точка экранируется /\./g, '*'  dfg... = dfg***
+//в строке найти обратный слеш  /\/g, '*'
+console.log('12-34-56'.replace(/-/g, ':'));//= 12:34:56
+
+//классы патернов
+// \d ищем цифры
+// \w ищем все слова
+// \s ищем все пробелы
+// D не цифры
+//W не буквы
+const ans = prompt('Введите номер');
+const reg = /\d/;
+console.log(ans.match(reg));
+//sddsdds3fkg = ['3', index 7], 200px = ['2', '0', '0']
+const str = 'My name is R2D2';
+console.log(str.match(/\w\d\w\d/i));//['R2D2', index 22]
+console.log(str.match(/\W/ig));//['', '', '']
+console.log(str.match(/\D/ig));//['M', 'y', 'n'....]
