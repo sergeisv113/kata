@@ -411,3 +411,9 @@ const newArr = Object.entries(obj)
     .filter(i => i[1] === 'person')
     .map(i => i[0]); // получ массива массивов
 console.log(newArr);// ['ivan', 'ann']
+
+//LOCAL STORAGE
+ localStorage.setItem('number', 5)// new key запись
+localStorage.getItem('number')// получ //5
+localStorage.removeItem('number')//delete
+localStorage.clear();//clear DB
