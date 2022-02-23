@@ -455,3 +455,20 @@ const str = 'My name is R2D2';
 console.log(str.match(/\w\d\w\d/i));//['R2D2', index 22]
 console.log(str.match(/\W/ig));//['', '', '']
 console.log(str.match(/\D/ig));//['M', 'y', 'n'....]
+
+//GIT
+//git clone + ссылка
+//git pull  donwload
+//git add file=> git commit -m'1' => git push origin main'
+
+//CSS
+//'background-color:teal;'= цвет фона
+
+//селекторы--
+// 1 элемента, = p { color:yellow;}
+// 2 класса, = <p class='first'><p/>  p.first { color:aqua;}, <p class='second'> .second{color:red}
+//3 .block1 {width:80%; margin: 0 auto;}, вн отступ padding
+// 4 id, <p id='p2'> #p2{color:yellow;}
+//5 по иерархии <p><b>YGuyguyg<b/></p>   p b {color:yellow;}
+//6 событийный a:hover{color:yellow;} измен цвет при наведении
+//анимация при наведении img {transform: scale(1);transition:2s all}  img:hover{transform: scale(1.2)}
